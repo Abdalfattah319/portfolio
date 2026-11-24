@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17130f">
+  <meta name="description"
+    content="Abdalfattah Alkordi — Laravel / PHP Backend Developer building practical web applications, APIs and business automation.">
+  <meta property="og:title" content="Abdalfattah Alkordi | Laravel Backend Developer">
+  <meta property="og:description"
+    content="I build reliable Laravel applications, REST APIs and business automation solutions.">
+  <meta property="og:type" content="website">
+  <title>Abdalfattah Alkordi | Laravel / PHP Backend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17130f;
+      --ink-2: #211b14;
+      --gold: #d9a53c;
+      --gold-soft: #f1d69c;
+      --paper: #faf7f0;
+      --paper-2: #f1ebdf;
+      --muted: #81796d;
+      --line: rgba(36, 28, 18, .12);
+      --white: #fffdf8;
+      --shadow: 0 24px 70px rgba(39, 28, 13, .12);
+      --radius: 22px;
+      --font: Inter, sans-serif
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.65
+    }
+
+    body.ar {
+      font-family: Cairo, sans-serif
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font: inherit
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 44px));
+      margin: auto
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(250, 247, 240, .88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -.06em;
+      font-size: 21px
+    }
+
+    .brand span {
+      color: var(--gold)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: #655d52;
+      font-size: 13px;
+      font-weight: 600
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 9px
+    }
+
+    .icon-btn,
+    .menu-btn {
+      width: 39px;
+      height: 39px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      color: var(--ink)
+    }
+
+    .menu-btn {
+      display: none
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 76px 0 92px;
+      background: radial-gradient(ellipse at 78% 48%, rgba(217, 165, 60, .13), transparent 35%), var(--paper)
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      align-items: center;
+      gap: 64px;
+      min-height: 510px
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(217, 165, 60, .38);
+      border-radius: 30px;
+      color: #80601f;
+      background: rgba(217, 165, 60, .09);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      background: #6b9b68;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(107, 155, 104, .13)
+    }
+
+    h1 {
+      font-size: clamp(43px, 6vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -.065em;
+      margin: 25px 0 15px;
+      font-weight: 800
+    }
+
+    h1 .surname {
+      color: #a77b28
+    }
+
+    .role {
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 600;
+      color: #6d6254;
+      margin-bottom: 15px
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      color: #746c60;
+      font-size: 15px;
+      line-height: 1.9
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 19px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff
+    }
+
+    .btn-primary:hover {
+      background: #34281b;
+      transform: translateY(-2px)
+    }
+
+    .btn-outline {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .5)
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold)
+    }
+
+    .socials {
+      display: flex;
+      gap: 20px;
+      margin-top: 25px;
+      color: #766d60;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .socials a:hover {
+      color: #a77b28
+    }
+
+    .portrait-stage {
+      position: relative;
+      max-width: 440px;
+      width: 100%;
+      justify-self: end;
+      isolation: isolate
+    }
+
+    .portrait-stage:before {
+      content: "";
+      position: absolute;
+      inset: 26px -18px -18px 28px;
+      border: 1px solid rgba(217, 165, 60, .7);
+      border-radius: 190px 190px 26px 26px;
+      z-index: -1
+    }
+
+    .portrait-backdrop {
+      position: absolute;
+      inset: 0 22px 0 0;
+      border-radius: 190px 190px 26px 26px;
+      background: linear-gradient(145deg, #e9d7b2, #c9a15c 58%, #6d5129);
+      transform: rotate(-3deg);
+      z-index: -1
+    }
+
+    .portrait-frame {
+      height: 510px;
+      overflow: hidden;
+      border-radius: 190px 190px 24px 24px;
+      background: #e9e2d6;
+      box-shadow: var(--shadow);
+      border: 7px solid rgba(255, 255, 255, .75)
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 30%
+    }
+
+    .portrait-tag {
+      position: absolute;
+      bottom: 28px;
+      left: -32px;
+      padding: 14px 18px;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+      font-size: 12px
+    }
+
+    .portrait-tag strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 14px
+    }
+
+    .portrait-tag span {
+      color: #c7bdae;
+      font-size: 10px
+    }
+
+    .section {
+      padding: 88px 0
+    }
+
+    .section-dark {
+      background: var(--ink);
+      color: var(--white)
+    }
+
+    .section-head {
+      max-width: 650px;
+      margin-bottom: 36px
+    }
+
+    .kicker {
+      color: #a77b28;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: 10px;
+      font-weight: 800
+    }
+
+    .section-dark .kicker {
+      color: var(--gold)
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -.045em;
+      margin: 10px 0 12px
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 600px
+    }
+
+    .section-dark .section-intro {
+      color: #aaa093
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: start
+    }
+
+    .about-copy {
+      font-size: 15px;
+      color: #6f675c;
+      line-height: 2
+    }
+
+    .about-note {
+      border-left: 2px solid var(--gold);
+      padding: 5px 0 5px 22px;
+      color: #63594b;
+      font-size: 14px
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px
+    }
+
+    .skill-group {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, .55)
+    }
+
+    .skill-group h3 {
+      font-size: 13px;
+      margin: 0 0 15px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .chip {
+      padding: 7px 10px;
+      background: var(--paper-2);
+      border-radius: 6px;
+      color: #62594d;
+      font-size: 11px;
+      font-weight: 600
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px
+    }
+
+    .project {
+      background: #211b14;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 17px;
+      overflow: hidden
+    }
+
+    .project-art {
+      height: 170px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #302719, #17130f);
+      position: relative;
+      overflow: hidden
+    }
+
+    .project-art:after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border: 1px solid rgba(217, 165, 60, .28);
+      border-radius: 50%;
+      right: -45px;
+      top: -95px
+    }
+
+    .mock-window {
+      width: 78%;
+      height: 112px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 9px;
+      background: rgba(250, 247, 240, .08);
+      padding: 12px;
+      transform: rotate(-3deg);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .2)
+    }
+
+    .mock-top {
+      height: 8px;
+      width: 45%;
+      background: var(--gold);
+      border-radius: 4px;
+      margin-bottom: 13px
+    }
+
+    .mock-lines {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 7px
+    }
+
+    .mock-lines i {
+      height: 48px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .12);
+      display: block
+    }
+
+    .project-body {
+      padding: 22px
+    }
+
+    .project-meta {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: var(--gold);
+      font-weight: 800
+    }
+
+    .project h3 {
+      font-size: 19px;
+      margin: 7px 0
+    }
+
+    .project p {
+      font-size: 12px;
+      color: #b6ad9f;
+      line-height: 1.8
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 15px
+    }
+
+    .stack span {
+      font-size: 10px;
+      color: #d6c9b4;
+      border: 1px solid rgba(255, 255, 255, .13);
+      padding: 5px 8px;
+      border-radius: 5px
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 18px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-soft)
+    }
+
+    .project-links a:hover {
+      color: #fff
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px
+    }
+
+    .timeline h3 {
+      font-size: 17px;
+      margin: 0 0 20px
+    }
+
+    .timeline-item {
+      padding: 0 0 22px 20px;
+      border-left: 1px solid rgba(217, 165, 60, .5);
+      position: relative
+    }
+
+    .timeline-item:before {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      left: -4px;
+      top: 7px
+    }
+
+    .timeline-item strong {
+      display: block;
+      font-size: 13px
+    }
+
+    .timeline-item span {
+      font-size: 11px;
+      color: #8a8070
+    }
+
+    .timeline-item p {
+      font-size: 12px;
+      color: #6f675c;
+      margin: 7px 0 0
+    }
+
+    .contact-panel {
+      padding: 38px;
+      border-radius: 20px;
+      background: var(--paper-2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px
+    }
+
+    .contact-panel h2 {
+      margin: 0 0 8px
+    }
+
+    .contact-panel p {
+      color: #776e61;
+      font-size: 13px;
+      margin: 0
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .contact-link {
+      border: 1px solid var(--line);
+      padding: 11px 14px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700
+    }
+
+    .contact-link:hover {
+      border-color: var(--gold)
+    }
+
+    .footer {
+      padding: 25px 0;
+      background: var(--ink);
+      color: #9e9588;
+      font-size: 11px
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    body.ar .hero-copy,
+    body.ar .about-copy,
+    body.ar .about-note,
+    body.ar .project p,
+    body.ar .timeline-item p {
+      line-height: 2
+    }
+
+    body.ar h1,
+    body.ar h2 {
+      letter-spacing: 0
+    }
+
+    body.ar .portrait-tag {
+      left: auto;
+      right: -32px
+    }
+
+    body.ar .about-note {
+      border-left: 0;
+      border-right: 2px solid var(--gold);
+      padding: 5px 22px 5px 0
+    }
+
+    body.ar .timeline-item {
+      padding: 0 20px 22px 0;
+      border-left: 0;
+      border-right: 1px solid rgba(217, 165, 60, .5)
+    }
+
+    body.ar .timeline-item:before {
+      left: auto;
+      right: -4px
+    }
+
+    body.ar .nav-links {
+      font-family: Cairo, sans-serif
+    }
+
+    @media(max-width:850px) {
+      .hero-grid {
+        gap: 35px;
+        grid-template-columns: 1fr .85fr
+      }
+
+      .portrait-frame {
+        height: 420px
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .nav-links {
+        gap: 15px
+      }
+
+      .contact-panel {
+        align-items: flex-start;
+        flex-direction: column
+      }
+    }
+
+    @media(max-width:650px) {
+      .container {
+        width: min(100% - 32px, 560px)
+      }
+
+      .nav {
+        height: 66px
+      }
+
+      .menu-btn {
+        display: inline-grid;
+        place-items: center
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        padding: 18px 22px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      .nav-links.open {
+        display: flex
+      }
+
+      .hero {
+        padding: 46px 0 70px
+      }
+
+      .hero-grid {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 38px;
+        align-items: stretch
+      }
+
+      .portrait-stage {
+        width: min(78%, 330px);
+        justify-self: center;
+        align-self: center;
+        margin: 0 auto
+      }
+
+      .portrait-frame {
+        height: 390px
+      }
+
+      .portrait-tag {
+        left: -24px;
+        bottom: 18px
+      }
+
+      .hero-copy {
+        font-size: 14px
+      }
+
+      .section {
+        padding: 65px 0
+      }
+
+      .about-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 25px
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px
+      }
+
+      .skill-group {
+        padding: 16px
+      }
+
+      .projects {
+        grid-template-columns: 1fr
+      }
+
+      .project-art {
+        height: 150px
+      }
+
+      .contact-panel {
+        padding: 25px
+      }
+
+      .footer-inner {
+        flex-direction: column
+      }
+
+      h1 {
+        font-size: 48px
+      }
+    }
+
+    @media(max-width:390px) {
+      .skills-grid {
+        grid-template-columns: 1fr
+      }
+
+      .portrait-frame {
+        height: 350px
+      }
+
+      .hero-actions .btn {
+        width: 100%
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+
+      * {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">AK<span>.</span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about" data-i18n="navAbout">About</a><a href="#skills" data-i18n="navSkills">Skills</a><a
+          href="#projects" data-i18n="navProjects">Projects</a><a href="#experience"
+          data-i18n="navExperience">Experience</a><a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="langBtn" aria-label="Switch language">ع</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <div class="eyebrow"><i class="pulse"></i><span data-i18n="availability">Available for remote
+              opportunities</span></div>
+          <h1>Abdalfattah<br><span class="surname">Alkordi.</span></h1>
+          <div class="role" data-i18n="role">Laravel / PHP Backend Developer</div>
+          <p class="hero-copy" data-i18n="heroCopy">I build order-management systems and APIs with automatic WhatsApp
+            notifications — turning business workflows into practical, reliable web solutions.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact" data-i18n="contactMe">Contact me ↗</a>
+            <a class="btn btn-outline" href="assets/cv.pdf" target="_blank" rel="noopener" data-i18n="downloadCv">View
+              CV ↓</a>
+          </div>
+          <div class="socials">
+            <a href="https://github.com/Abdalfattah319" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/abd-alfattah-alkordi-19b822286" target="_blank" rel="noopener">LinkedIn
+              ↗</a>
+            <span>Palestine · Remote</span>
+          </div>
+        </div>
+        <div class="portrait-stage reveal" aria-label="Portrait of Abdalfattah Alkordi">
+          <div class="portrait-backdrop"></div>
+          <div class="portrait-frame"><img src="assets/profile.jpg" alt="Abdalfattah Alkordi working at his computer">
+          </div>
+          <div class="portrait-tag"><strong>Backend Developer</strong><span>Laravel · PHP · APIs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker" data-i18n="aboutKicker">A little about me</div>
+          <h2 data-i18n="aboutTitle">Building useful things, one line at a time.</h2>
+        </div>
+        <div class="about-grid reveal">
+          <p class="about-copy" data-i18n="aboutCopy">I'm a Laravel / PHP Backend Developer focused on building web
+            applications, REST APIs and integrations that solve real business needs. I enjoy turning requirements into
+            clear backend logic and maintainable solutions. I'm continuously improving my skills through hands-on
+            projects and collaboration.</p>
+          <div class="about-note" data-i18n="aboutNote">My focus is not just writing code — it's understanding the
+            workflow behind a product and building a solution that makes that workflow easier.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills" style="background:#f1ebdf">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker" data-i18n="skillsKicker">Technical toolkit</div>
+          <h2 data-i18n="skillsTitle">Tools I work with.</h2>
+        </div>
+        <div class="skills-grid reveal">
+          <div class="skill-group">
+            <h3>Backend</h3>
+            <div class="chips"><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">REST
+                APIs</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Databases</h3>
+            <div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span
+                class="chip">PostGIS</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Integrations</h3>
+            <div class="chips"><span class="chip">WhatsApp Cloud API</span><span class="chip">Queues</span><span
+                class="chip">Scheduled Jobs</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span
+                class="chip">Postman</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker" data-i18n="projectsKicker">Selected work</div>
+          <h2 data-i18n="projectsTitle">Projects built around real needs.</h2>
+          <p class="section-intro" data-i18n="projectsIntro">A selection of practical applications, client work and
+            demos built around real business workflows.</p>
+        </div>
+        <div class="projects reveal">
+
+          <!-- 1. Sandouq (client project, private) -->
+          <article class="project">
+            <div class="project-art">
+              <div class="mock-window">
+                <div class="mock-top"></div>
+                <div class="mock-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Freelance · Real client project</div>
+              <h3>Sandouq — Order Management</h3>
+              <p data-i18n="sandouqDesc">A factory order-management system with order tracking, status updates and
+                automated WhatsApp customer notifications.</p>
+              <div class="stack"><span>Laravel</span><span>MySQL</span><span>WhatsApp Cloud API</span><span>Scheduled
+                  Jobs</span></div>
+            </div>
+          </article>
+
+          <!-- 2. Maham Platform -->
+          <article class="project">
+            <div class="project-art">
+              <div class="mock-window">
+                <div class="mock-top" style="width:60%"></div>
+                <div class="mock-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Full-stack project</div>
+              <h3>Maham — Freelance Work Platform</h3>
+              <p data-i18n="mahamDesc">A platform connecting project owners with freelancers: project and task tracking,
+                CV builder, built-in wallet, mutual ratings and a deliveries workflow, built with Action Classes.</p>
+              <div class="stack"><span>Laravel</span><span>MySQL</span><span>Action Classes</span><span>REST API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Abdalfattah319/Board-platform-job" target="_blank" rel="noopener">GitHub
+                  ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. SeenStore -->
+          <article class="project">
+            <div class="project-art">
+              <div class="mock-window">
+                <div class="mock-top" style="width:45%"></div>
+                <div class="mock-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Practice project</div>
+              <h3>SeenStore — E-commerce</h3>
+              <p data-i18n="seenstoreDesc">A full Arabic (RTL) online store with authentication, product and category
+                management, cart, checkout and an admin dashboard.</p>
+              <div class="stack"><span>Laravel</span><span>MySQL</span><span>Blade</span><span>MVC</span></div>
+              <div class="project-links">
+                <a href="https://github.com/Abdalfattah319/SeenStore" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Fashion House -->
+          <article class="project">
+            <div class="project-art">
+              <div class="mock-window">
+                <div class="mock-top" style="width:52%"></div>
+                <div class="mock-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Demo · Sample data</div>
+              <h3>Fashion House — Store Orders Dashboard</h3>
+              <p data-i18n="fashionDesc">An Arabic (RTL) dashboard for store orders and customers, with light/dark mode,
+                a unified inbox and a WhatsApp center with message templates (simulated).</p>
+              <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>LocalStorage</span></div>
+              <div class="project-links">
+                <a href="https://fashion-hous.netlify.app/" target="_blank" rel="noopener">Live demo ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Clinic -->
+          <article class="project">
+            <div class="project-art">
+              <div class="mock-window">
+                <div class="mock-top" style="width:40%"></div>
+                <div class="mock-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Demo · Sample data</div>
+              <h3>Clinic Management System</h3>
+              <p data-i18n="clinicDesc">A clinic management demo covering appointments, patients and daily workflow.</p>
+              <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>LocalStorage</span></div>
+              <div class="project-links">
+                <a href="https://cclinic-app.netlify.app/" target="_blank" rel="noopener">Live demo ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Stocklye -->
+          <article class="project">
+            <div class="project-art">
+              <div class="mock-window">
+                <div class="mock-top" style="width:68%"></div>
+                <div class="mock-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Demo · Sample data</div>
+              <h3>Stocklye — Inventory Management</h3>
+              <p data-i18n="stocklyeDesc">An inventory management demo for tracking products, stock levels and
+                movements.</p>
+              <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>LocalStorage</span></div>
+              <div class="project-links">
+                <a href="https://stocklye-inventory.netlify.app/" target="_blank" rel="noopener">Live demo ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Hotel -->
+          <article class="project">
+            <div class="project-art">
+              <div class="mock-window">
+                <div class="mock-top" style="width:35%"></div>
+                <div class="mock-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Practice project</div>
+              <h3>Hotel Booking System</h3>
+              <p data-i18n="hotelDesc">A hotel booking application focused on room availability logic and managing
+                reservations.</p>
+              <div class="stack"><span>Laravel</span><span>MySQL</span><span>Booking Logic</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker" data-i18n="journeyKicker">My journey</div>
+          <h2 data-i18n="journeyTitle">Experience & education.</h2>
+        </div>
+        <div class="timeline reveal">
+          <div>
+            <h3 data-i18n="experienceHeading">Experience</h3>
+            <div class="timeline-item"><strong>Freelance Laravel Developer</strong><span>Mostaql · Khamsat ·
+                Upwork</span>
+              <p data-i18n="freelanceDesc">Building backend features and custom web solutions for client requirements.
+              </p>
+            </div>
+            <div class="timeline-item"><strong>Field Training Intern</strong><span>Jawwal · [YEAR]</span>
+              <p data-i18n="jawwalDesc">Field training experience in a professional telecommunications environment.</p>
+            </div>
+          </div>
+          <div>
+            <h3 data-i18n="educationHeading">Education & training</h3>
+            <div class="timeline-item"><strong>Computer Science / IT</strong><span>Al-Aqsa University · [YEAR]</span>
+              <p data-i18n="degreeDesc">Bachelor's degree in Computer Science / Information Technology.</p>
+            </div>
+            <div class="timeline-item"><strong>Laravel Training — ~90 Hours</strong><span>Arsto Software · Khireej Qader
+                Program</span>
+              <p data-i18n="trainingDesc">Practical Laravel training as part of the Khireej Qader program.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" style="padding-top:15px">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <div class="kicker" data-i18n="contactKicker">Let's connect</div>
+            <h2 data-i18n="contactTitle">Have a project in mind?</h2>
+            <p data-i18n="contactCopy">I'm open to remote opportunities, freelance projects and meaningful
+              collaborations.</p>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:abdalfattahalkordi@gmail.com">Email me ↗</a>
+            <a class="contact-link" href="https://wa.me/972597481907" target="_blank" rel="noopener">WhatsApp ↗</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/abd-alfattah-alkordi-19b822286" target="_blank"
+              rel="noopener">LinkedIn ↗</a>
+            <a class="contact-link" href="https://github.com/Abdalfattah319" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner"><span>© <span id="year"></span> Abdalfattah Alkordi. <span
+          data-i18n="rights">All rights reserved.</span></span><span data-i18n="footerLine">Designed & built with
+        purpose.</span></div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        navAbout: "About", navSkills: "Skills", navProjects: "Projects", navExperience: "Experience", navContact: "Contact",
+        availability: "Available for remote opportunities", role: "Laravel / PHP Backend Developer",
+        heroCopy: "I build order-management systems and APIs with automatic WhatsApp notifications — turning business workflows into practical, reliable web solutions.",
+        contactMe: "Contact me ↗", downloadCv: "View CV ↓", aboutKicker: "A little about me", aboutTitle: "Building useful things, one line at a time.",
+        aboutCopy: "I'm a Laravel / PHP Backend Developer focused on building web applications, REST APIs and integrations that solve real business needs. I enjoy turning requirements into clear backend logic and maintainable solutions. I'm continuously improving my skills through hands-on projects and collaboration.",
+        aboutNote: "My focus is not just writing code — it's understanding the workflow behind a product and building a solution that makes that workflow easier.",
+        skillsKicker: "Technical toolkit", skillsTitle: "Tools I work with.", projectsKicker: "Selected work", projectsTitle: "Projects built around real needs.",
+        projectsIntro: "A selection of practical applications, client work and demos built around real business workflows.",
+        sandouqDesc: "A factory order-management system with order tracking, status updates and automated WhatsApp customer notifications.",
+        hotelDesc: "A hotel booking application focused on room availability logic and managing reservations.",
+        mahamDesc: "A platform connecting project owners with freelancers: project and task tracking, CV builder, built-in wallet, mutual ratings and a deliveries workflow, built with Action Classes.",
+        seenstoreDesc: "A full Arabic (RTL) online store with authentication, product and category management, cart, checkout and an admin dashboard.",
+        fashionDesc: "An Arabic (RTL) dashboard for store orders and customers, with light/dark mode, a unified inbox and a WhatsApp center with message templates (simulated).",
+        clinicDesc: "A clinic management demo covering appointments, patients and daily workflow.",
+        stocklyeDesc: "An inventory management demo for tracking products, stock levels and movements.",
+        journeyKicker: "My journey", journeyTitle: "Experience & education.", experienceHeading: "Experience", educationHeading: "Education & training",
+        freelanceDesc: "Building backend features and custom web solutions for client requirements.", jawwalDesc: "Field training experience in a professional telecommunications environment.",
+        degreeDesc: "Bachelor's degree in Computer Science / Information Technology.", trainingDesc: "Practical Laravel training as part of the Khireej Qader program.",
+        contactKicker: "Let's connect", contactTitle: "Have a project in mind?", contactCopy: "I'm open to remote opportunities, freelance projects and meaningful collaborations.",
+        rights: "All rights reserved.", footerLine: "Designed & built with purpose."
+      },
+      ar: {
+        navAbout: "نبذة عني", navSkills: "المهارات", navProjects: "المشاريع", navExperience: "الخبرة", navContact: "تواصل معي",
+        availability: "متاح للفرص والعمل عن بُعد", role: "مطور Backend باستخدام Laravel و PHP",
+        heroCopy: "أطوّر أنظمة إدارة الطلبات وواجهات API مع إشعارات واتساب تلقائية، لتحويل إجراءات العمل اليومية إلى حلول ويب عملية وموثوقة.",
+        contactMe: "تواصل معي ↗", downloadCv: "عرض السيرة الذاتية ↓", aboutKicker: "نبذة بسيطة عني", aboutTitle: "أبني حلولاً مفيدة، سطراً برمجياً بعد سطر.",
+        aboutCopy: "أنا مطور Backend باستخدام Laravel وPHP، أركز على بناء تطبيقات الويب وواجهات REST API والتكاملات التي تلبي احتياجات الأعمال. أستمتع بتحويل المتطلبات إلى منطق برمجي واضح وحلول قابلة للصيانة، وأعمل باستمرار على تطوير مهاراتي من خلال المشاريع العملية والتعاون.",
+        aboutNote: "لا يقتصر اهتمامي على كتابة الكود، بل يبدأ بفهم آلية العمل خلف المنتج وبناء حل يجعلها أسهل وأكثر كفاءة.",
+        skillsKicker: "أدواتي التقنية", skillsTitle: "التقنيات التي أعمل بها.", projectsKicker: "نماذج من أعمالي", projectsTitle: "مشاريع مبنية لحل احتياجات حقيقية.",
+        projectsIntro: "مجموعة من التطبيقات العملية وأعمال العملاء والنماذج التجريبية المبنية حول إجراءات عمل حقيقية.",
+        sandouqDesc: "نظام لإدارة طلبات مصنع، يتضمن تتبع الطلبات وتحديث حالاتها وإرسال إشعارات تلقائية للعملاء عبر واتساب.",
+        hotelDesc: "تطبيق لحجوزات الفنادق يركز على منطق التحقق من توفر الغرف وإدارة الحجوزات.",
+        mahamDesc: "منصة تربط أصحاب المشاريع بالمستقلين: إدارة المشاريع والمهام، منشئ سيرة ذاتية، محفظة إلكترونية مدمجة، تقييمات متبادلة ونظام تسليمات، مبنية باستخدام Action Classes.",
+        seenstoreDesc: "متجر إلكتروني كامل بواجهة عربية (RTL) يتضمن تسجيل الدخول، إدارة المنتجات والفئات، عربة التسوق، صفحة الدفع ولوحة تحكم للإدارة.",
+        fashionDesc: "لوحة تحكم عربية (RTL) لإدارة طلبات المتجر والعملاء، تدعم الوضع الفاتح والداكن، مع صندوق محادثات موحّد ومركز واتساب بقوالب رسائل جاهزة (بوضع المحاكاة).",
+        clinicDesc: "نموذج لنظام إدارة عيادة يغطي المواعيد والمرضى وسير العمل اليومي.",
+        stocklyeDesc: "نموذج لنظام إدارة مخزون لتتبع المنتجات ومستويات المخزون وحركتها.",
+        journeyKicker: "مسيرتي", journeyTitle: "الخبرة والتعليم.", experienceHeading: "الخبرة", educationHeading: "التعليم والتدريب",
+        freelanceDesc: "تطوير خصائص Backend وحلول ويب مخصصة وفق متطلبات العملاء.", jawwalDesc: "تجربة تدريب ميداني ضمن بيئة عمل احترافية في قطاع الاتصالات.",
+        degreeDesc: "درجة البكالوريوس في علوم الحاسوب / تكنولوجيا المعلومات.", trainingDesc: "تدريب عملي على Laravel ضمن برنامج خريج قادر.",
+        contactKicker: "لنتواصل", contactTitle: "هل لديك مشروع؟", contactCopy: "متاح للفرص عن بُعد ومشاريع العمل الحر والتعاون المهني.",
+        rights: "جميع الحقوق محفوظة.", footerLine: "تصميم وتطوير بهدف واضح."
+      }
+    };
+    let lang = "en";
+    const $ = (s) => document.querySelector(s);
+    function setLanguage(next) {
+      lang = next; document.documentElement.lang = next; document.documentElement.dir = next === "ar" ? "rtl" : "ltr"; document.body.classList.toggle("ar", next === "ar");
+      document.querySelectorAll("[data-i18n]").forEach(el => { const key = el.dataset.i18n; if (translations[next][key]) el.textContent = translations[next][key] });
+      $("#langBtn").textContent = next === "en" ? "ع" : "EN";
+      try { localStorage.setItem("portfolio-language", next) } catch (e) { }
+    }
+    $("#langBtn").addEventListener("click", () => setLanguage(lang === "en" ? "ar" : "en"));
+    $("#menuBtn").addEventListener("click", () => $("#navLinks").classList.toggle("open"));
+    document.querySelectorAll("#navLinks a").forEach(a => a.addEventListener("click", () => $("#navLinks").classList.remove("open")));
+    $("#year").textContent = new Date().getFullYear();
+    try { const saved = localStorage.getItem("portfolio-language"); if (saved === "ar") setLanguage("ar") } catch (e) { }
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target) } }), { threshold: .12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
